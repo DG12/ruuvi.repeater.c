@@ -36,6 +36,6 @@ mergehex -m ../../../../nRF5_SDK_15.3.0_59ac345/components/softdevice/s132/hex/s
 mergehex -m sbc.hex _build/nrf52832_xxaa.hex -o packet.hex
 
 nrfutil pkg generate --application _build/nrf52832_xxaa.hex --application-version 1 --hw-version 0xB0 --sd-req 0xB7 --key-file ruuvi_open_private.pem ${BINNAME}\_dfu.zip
-mv packet.hex ruuvitag_b\_armgcc\_$NAME\_$VERSION\_full.hex
+mv packet.hex ${BINNAME}\_full.hex
 mv _build/nrf52832_xxaa.map ${BINNAME}\_app.map
 mv _build/nrf52832_xxaa.hex ${BINNAME}\_app.hex

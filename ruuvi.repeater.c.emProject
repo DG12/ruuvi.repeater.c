@@ -195,6 +195,7 @@
     <folder Name="Docs">
       <file file_name="README.md" />
     </folder>
+    <configuration Name="Release" gcc_optimization_level="Level 3" />
   </project>
   <configuration
     Name="Release"

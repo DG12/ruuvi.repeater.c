@@ -96,6 +96,7 @@ ruuvi_driver_status_t task_advertisement_uninit(void)
 
 ruuvi_driver_status_t task_advertisement_scan_start(void)
 {
+  task_led_write(RUUVI_BOARD_LED_GREEN, TASK_LED_ON);
   return ruuvi_interface_communication_ble4_advertising_scan_start();
 }
 

@@ -13,9 +13,9 @@
 /** @brief Version string, displayed in NFC read and GATT data on DIS */
 #ifndef APPLICATION_FW_VERSION
   #if DEBUG
-  #define APPLICATION_FW_VERSION "Ruuvi scanner 0.1.0-DEBUG"
+  #define APPLICATION_FW_VERSION "Ruuvi scanner 0.1.1-DEBUG"
   #else
-  #define APPLICATION_FW_VERSION "Ruuvi scanner 0.1.0"
+  #define APPLICATION_FW_VERSION "Ruuvi scanner 0.1.1"
   #endif
 #endif
 
