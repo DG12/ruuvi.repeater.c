@@ -1,0 +1,66 @@
+/**
+ * Ruuvi Firmware 3.x advertisement tasks.
+ *
+ * License: BSD-3
+ * Author: Otso Jousimaa <otso@ojousima.net>
+ **/
+
+#ifndef  TASK_ADVERTISEMENT_H
+#define  TASK_ADVERTISEMENT_H
+
+#include "ruuvi_driver_error.h"
+#include "ruuvi_interface_communication_ble4_advertising.h"
+
+/**
+ * Initializes data advertising.
+ *
+ * After calling this function radio module has been reserved to ble4 advertisements.
+ * Parameters such as advertisement intercal and power are defined in application_config.h
+ * Requires that timers have been initialized.
+ *
+ * returns RUUVI_DRIVER_SUCCESS on success
+ * returns error code from stack on error
+ */
+ruuvi_driver_status_t task_advertisement_init(void);
+
+/**
+ * Uninitializes data advertising.
+ *
+ * After calling this function radio module has been released if it was reserved to ble4 advertisements.
+ * Can be called even if advertising was not initialized.
+ *
+ * returns RUUVI_DRIVER_SUCCESS on success
+ * returns error code from stack on error
+ */
+ruuvi_driver_status_t task_advertisement_uninit(void);
+
+/**
+ * Starts scanning for BLE data.
+ */
+ruuvi_driver_status_t task_advertisement_scan_start(void);
+
+/**
+ * Starts advertising. Reads sensors for latest data, but does not initialize sensors themselves
+ *
+ * returns RUUVI_DRIVER_SUCCESS on success
+ * returns RUUVI_DRIVER_ERROR_INVALID_STATE if advertising is not initialized.
+ * returns error code from stack on error
+ *
+ */
+ruuvi_driver_status_t task_advertisement_start(void);
+
+/**
+ * Stops advertising.
+ *
+ * returns RUUVI_DRIVER_SUCCESS on success
+ * returns error code from stack on error
+ */
+ruuvi_driver_status_t task_advertisement_stop(void);
+
+/**
+ * Signal that advertising data should be updated.
+ */
+void task_advertisement_scheduler_task(void* p_event_data, uint16_t event_size);
+
+
+#endif

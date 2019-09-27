@@ -6,6 +6,8 @@
 *.ko
 *.obj
 *.elf
+*.bin
+*.in
 
 # Linker output
 *.ilk
@@ -50,3 +52,23 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Mac OSX files
+.DS_Store
+
+# Build folder
+Output/
+_build/
+
+# SES files
+*.emSession
+*.jlink
+
+# Compiled packages
+*.zip
+
+# Keys
+*.pem
+
+# Backup files
+*.orig
