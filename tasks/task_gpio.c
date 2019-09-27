@@ -14,7 +14,7 @@ ruuvi_driver_status_t task_gpio_init()
   ruuvi_interface_gpio_id_t cs[] = RUUVI_BOARD_SPI_SS_LIST;
 #pragma GCC diagnostic pop
 
-  for(size_t ii = 0; ii < sizeof(cs); ii++)
+  for(size_t ii = 0; ii < RUUVI_BOARD_SPI_SS_NUMBER; ii++)
   {
     ruuvi_interface_gpio_configure(cs[ii], RUUVI_INTERFACE_GPIO_MODE_OUTPUT_STANDARD);
     ruuvi_interface_gpio_write(cs[ii], RUUVI_INTERFACE_GPIO_HIGH);

@@ -26,10 +26,7 @@
 #endif
 #define LOG(msg)  (ruuvi_interface_log(LOG_LEVEL, msg))
 
-static ruuvi_interface_timer_id_t advertisement_timer;
 static ruuvi_interface_communication_t channel;
-static uint64_t m_advertising_started = 0;
-static bool m_fast_advertising = false;
 
 static void task_advertisement_repeat_task(void* p_event_data, uint16_t event_size)
 {
