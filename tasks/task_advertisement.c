@@ -34,12 +34,11 @@ static void task_advertisement_repeat_task(void* p_event_data, uint16_t event_si
   ruuvi_driver_status_t err_code = RUUVI_DRIVER_SUCCESS;
   ruuvi_interface_communication_ble4_scan_t* p_scan = (ruuvi_interface_communication_ble4_scan_t*) p_event_data;
   uint64_t address = 0;
-  address += ((uint64_t)p_scan->addr[0]) << 40;
-  address += ((uint64_t)p_scan->addr[1]) << 32;
-  address += p_scan->addr[2] << 24;
-  address += p_scan->addr[3] << 16;
-  address += p_scan->addr[4] << 8;
-  address += p_scan->addr[5] << 0;
+  address += (((uint64_t)p_scan->addr[0]) << 40) + (((uint64_t)p_scan->addr[1]) << 32);
+  address += (uint64_t)p_scan->addr[2] << 24;
+  address += (uint64_t)p_scan->addr[3] << 16;
+  address += (uint64_t)p_scan->addr[4] << 8;
+  address += (uint64_t)p_scan->addr[5] << 0;
   err_code |= ruuvi_interface_communication_radio_address_set(address);
   err_code |= ruuvi_interface_communication_ble4_advertising_send_raw(p_scan->data, p_scan->data_len);
 }
